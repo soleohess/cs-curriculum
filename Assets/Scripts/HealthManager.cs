@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     private bool iframes;
-    private float Timer;
+    private float timer;
     private float originalTimer;
     private HUD hud;
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     {
         hud = GameObject.FindObjectOfType<HUD>();
         originalTimer = 1;
-        Timer = originalTimer;
+        timer = originalTimer;
     }
 
     // Update is called once per frame
@@ -22,11 +22,11 @@ public class Health : MonoBehaviour
     {
         if (iframes)
         {
-            Timer -= Time.deltaTime;
-            if (Timer<0)
+            timer -= Time.deltaTime;
+            if (timer<0)
             {
                 iframes = false;
-                Timer = originalTimer;
+                timer = originalTimer;
             }
         }
     }

@@ -1,23 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class PlayerFireball : MonoBehaviour
 {
     public Vector3 target;
     private float timer;
     private float originalTimer;
-
-    private GameObject player;
+    private GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        originalTimer = 6;
+        enemy = GameObject.FindWithTag("Enemy");
+        originalTimer = 10;
         timer = originalTimer;
-        target = player.transform.position;
+        target = enemy.transform.position;
     }
 
     // Update is called once per frame
@@ -26,13 +24,20 @@ public class FireBall : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer<0)
         {
-            gameObject.SetActive(false);
+            // need to find out how to target enemies
         }
-        if (target != null)
+        /*if (target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, 0.005f);
         }
-        
+        */
     }
-    
+
+    private void OnMouseDown()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            
+        }
+    }
 }
