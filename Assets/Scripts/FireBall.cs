@@ -9,7 +9,6 @@ public class FireBall : MonoBehaviour
     public Vector3 target;
     private float timer;
     private float originalTimer;
-
     private GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -30,9 +29,9 @@ public class FireBall : MonoBehaviour
         }
         if (target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, 0.005f);
+            transform.position = Vector3.MoveTowards(transform.position, target, 0.009f);
         }
         
-    }
+    } 
     
 }

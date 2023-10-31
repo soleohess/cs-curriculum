@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerFireball : MonoBehaviour
@@ -24,20 +25,26 @@ public class PlayerFireball : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer<0)
         {
-            // need to find out how to target enemies
+            gameObject.SetActive(false);
         }
-        /*if (target != null)
+        if (target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, 0.005f);
+            transform.position = Vector3.MoveTowards(transform.position, target, 0.03f);
         }
-        */
+        
     }
 
-    private void OnMouseDown()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (Input.GetMouseButton(1))
-        {
-            
-        }
+        other.gameObject.SetActive(false);
     }
 }
+// make a different script for the player making fireballs
+// use this
+//     private void OnMouseDown()
+// {
+//    if (Input.GetMouseButton(1))
+//       {
+//        
+//       }
+// }

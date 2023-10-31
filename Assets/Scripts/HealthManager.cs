@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
             {
                 ChangeHealth(3);
                 if (hud.health > hud.maxHealth)
-                {
+                { 
                     hud.health = hud.maxHealth;
                 }
 

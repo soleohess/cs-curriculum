@@ -40179,8 +40179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  health: 0
-  maxHealth: 10
+  health: 10
+  maxHealth: 15
   coinText: {fileID: 1502447636}
   healthText: {fileID: 1006388103}
 --- !u!1 &703228634
@@ -85230,6 +85230,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1750497391}
+    - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750497392}
   m_SourcePrefab: {fileID: 100100000, guid: 34448014912494d33b041af48acd0291, type: 3}
 --- !u!1 &1750497384 stripped
 GameObject:
@@ -85274,6 +85278,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216a78bd76cca46a78458bd81335b19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1750497392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bdbc399f0034cddbd9ab0e74388d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 8250238793003990156, guid: 88c81d723668e4efdb73b3b3ec4d3fd6,
+    type: 3}
+  shootButton: 324
 --- !u!4 &1825907749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281311786053241907, guid: 69c7343f050914c7787bbbe42c07b5b8,
