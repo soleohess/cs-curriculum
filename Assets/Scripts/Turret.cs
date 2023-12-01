@@ -50,7 +50,3 @@ public class Turret : MonoBehaviour
         }
     }
 }
-
-// for this I need a timer,
-// a collision detecter (do this in unity with a circle collider 2D),
-// and projectile code

@@ -25,9 +25,18 @@ public class PlayerSummonFireball : MonoBehaviour
         {
             
         }
+        //when button is pressed
         if (Input.GetKey(shootButton)) 
         {
-            Instantiate(projectile, transform.position + offset, Quaternion.identity);
+            //if fireball exists don't make another one
+            if (GameObject.FindGameObjectWithTag("PlayerFireball") != null)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("PlayerFireball"));
+            }
+            else
+            {
+                Instantiate(projectile, transform.position + offset, Quaternion.identity);
+            }
         }
     }
 }

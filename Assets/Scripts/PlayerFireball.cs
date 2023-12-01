@@ -6,17 +6,28 @@ using UnityEngine;
 
 public class PlayerFireball : MonoBehaviour
 {
-    public Vector3 target;
-    private float timer;
+    public GameObject target;
+    public float timer;
     private float originalTimer;
-    private GameObject enemy;
+    public GameObject self;
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.FindWithTag("Enemy");
         originalTimer = 10;
         timer = originalTimer;
-        target = enemy.transform.position;
+        target = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        target = GameObject.FindGameObjectWithTag("Enemy");
+        /*if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject = target;
+
+            // Target needs to be set properly
+            //target = other.gameObject;
+        }*/
     }
 
     // Update is called once per frame
@@ -25,26 +36,10 @@ public class PlayerFireball : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer<0)
         {
-            gameObject.SetActive(false);
+            Destroy(self);
         }
-        if (target != null)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, 0.03f);
-        }
+
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.02f);
         
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        other.gameObject.SetActive(false);
-    }
 }
-// make a different script for the player making fireballs
-// use this
-//     private void OnMouseDown()
-// {
-//    if (Input.GetMouseButton(1))
-//       {
-//        
-//       }
-// }
