@@ -22,12 +22,19 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (gameObject.CompareTag("PlayerFireball"))
+        {
+            hp -= 1;
+        }
+    }
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerFireball"))
         {
             hp -= 1;
         }
-    }
+    }*/
 }
 

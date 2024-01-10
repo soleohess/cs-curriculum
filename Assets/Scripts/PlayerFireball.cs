@@ -20,7 +20,7 @@ public class PlayerFireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        target = GameObject.FindGameObjectWithTag("Enemy");
+        //target = GameObject.FindGameObjectWithTag("Enemy");
         /*if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject = target;
@@ -33,6 +33,7 @@ public class PlayerFireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Enemy");
         timer -= Time.deltaTime;
         if (timer<0)
         {
@@ -41,5 +42,10 @@ public class PlayerFireball : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.02f);
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(self.gameObject);
     }
 }

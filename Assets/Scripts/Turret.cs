@@ -11,12 +11,14 @@ public class Turret : MonoBehaviour
     private float originalTimer;
     private GameObject target;
     public Vector3 offset;
+    public int hp;
     [SerializeField] private GameObject projectile;
     // Start is called before the first frame update
     void Start()
     {
         originalTimer = 3;
         timer = originalTimer;
+        hp = 1;
     }
 
     // Update is called once per frame
@@ -31,8 +33,11 @@ public class Turret : MonoBehaviour
                 timer = originalTimer;
             }
         }
-        
-        
+
+        if (hp <= 0)
+        {
+            this.gameObject.SetActive(false);   
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +45,11 @@ public class Turret : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             target = other.gameObject;
+        }
+        else if (other.gameObject.CompareTag("PlayerFireball"))
+        {
+            hp -= 1;
+            Debug.Log("string");
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -49,4 +59,5 @@ public class Turret : MonoBehaviour
             target = null;
         }
     }
+
 }
