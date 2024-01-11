@@ -119,7 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f129ae109c1f4f72b14e6c3bcea9818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  healthPotion: {fileID: 1142827986733161938, guid: 30a96e126ce864cda9853b0e311a8895,
+    type: 3}
   hp: 1
+  randomNumber: 0
 --- !u!1 &6074370204116875197
 GameObject:
   m_ObjectHideFlags: 0
