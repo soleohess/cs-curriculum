@@ -13,7 +13,7 @@ public class PlayerFireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originalTimer = 10;
+        originalTimer = 5;
         timer = originalTimer;
         target = null;
     }
