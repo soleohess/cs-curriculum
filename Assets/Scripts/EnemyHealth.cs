@@ -23,6 +23,10 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else if (hp > 0)
+        {
+            gameObject.SetActive(true);
+        }
 
         if (hp <= 0)
         {
@@ -46,7 +50,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (gameObject.CompareTag("PlayerFireball"))
         {
-            hp -= 1;
+            hp = 0;
         }
     }
     /*private void OnTriggerEnter2D(Collider2D other)

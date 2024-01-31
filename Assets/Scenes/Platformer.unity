@@ -154,6 +154,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworld: 0
+  rb: {fileID: 10822059}
+--- !u!50 &10822059 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5564746796056154358, guid: cddc0eae8679c4344b7e477729e7843b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757434913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934382336
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,14 +16,20 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position,target, .001f);
+        target = player.transform.position;
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (target != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, 0.009f);
+        }
+        
+    /*    if (other.gameObject.CompareTag("Player"))
         {
             target = other.transform.position;
         }
+    */    
     }
 }
