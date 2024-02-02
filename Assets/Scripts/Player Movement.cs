@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float xvector;
     private float yvector;
     private float ydirection;
+    public float jumpforce;
     public Rigidbody2D rb;
+    public LayerMask ground;
+
     private bool atj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ySpeed = 5;
         }
+
         xSpeed = 5;
     }
 
@@ -33,30 +38,19 @@ public class PlayerMovement : MonoBehaviour
     {
         xdirection = Input.GetAxis("Horizontal");
         ydirection = Input.GetAxis("Vertical");
-        
-        xvector = xdirection*xSpeed*Time.deltaTime;
-        yvector = ydirection*ySpeed*Time.deltaTime;
-        transform.position = transform.position + new Vector3(xvector, yvector, 0);
-        /*if (!overworld)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                
-            }
-        }*/
-    }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        atj == true;
+        xvector = xdirection * xSpeed * Time.deltaTime;
+        yvector = ydirection * ySpeed * Time.deltaTime;
+        transform.position = transform.position + new Vector3(xvector, yvector, 0);
         if (!overworld)
-        {
-            if (Input.GetKey(KeyCode.Space))
+        { 
+            atj = Physics2D.Raycast(transform.position, Vector2.down, 1, ground);
+            Debug.DrawRay(transform.position, Vector2.down, Color.red);
+            if (atj && Input.GetKeyDown("space"))
             {
-                rb.AddForce(Vector2.up * 4, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
+
             }
         }
-
-        
     }
 }
